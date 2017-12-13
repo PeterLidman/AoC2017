@@ -1,4 +1,5 @@
 package advent8;
+
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
@@ -19,17 +20,12 @@ public class advent8 {
 		for (int i = 0; i < antal; i++) {
 			vars.put(getFirstWord(tree[i]), 0);
 		}
-		int o = 0;
-		// for (String aa : vars.keySet()) {
-		// System.out.println(o++ + ":" + aa + " v= " + vars.get(aa));
-		// }
-		// System.out.println("storl" + vars.size());
-
 		maximum = 0;
 		for (int i = 0; i < antal; i++) {
 			int tmp = 0;
 			a = tree[i].split(" ");
-			//System.out.println(" 0:" + a[0] + " 1:" + a[1] + " 2:" + a[2] + " 3:" + a[3] + " 4:" + a[4] + " 5:" + a[5] + " 6:" + a[6]);
+			// System.out.println(" 0:" + a[0] + " 1:" + a[1] + " 2:" + a[2] + " 3:" + a[3]
+			// + " 4:" + a[4] + " 5:" + a[5] + " 6:" + a[6]);
 
 			switch (a[5]) {
 			case "==":
@@ -72,18 +68,16 @@ public class advent8 {
 				System.out.println("åh fan= " + a[5]);
 			}
 			if (tmp > maximum) {
-				maximum= tmp;
+				maximum = tmp;
 			}
 		}
 		System.out.println("maximum= " + maximum);
 
-		o = 0;
 		int max = 0;
 		for (String aa : vars.keySet()) {
 			if (vars.get(aa) > max) {
 				max = vars.get(aa);
 			}
-			//System.out.println(o++ + "::::" + aa + " v= " + vars.get(aa));
 		}
 		System.out.println("max= " + max);
 	}

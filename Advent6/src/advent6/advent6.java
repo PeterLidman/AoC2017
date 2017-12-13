@@ -1,7 +1,6 @@
 package advent6;
 
 public class advent6 {
-
 	int depth = 16;
 	int size = 20000;
 	int offset = 1;
@@ -12,34 +11,19 @@ public class advent6 {
 		String a = "2 8 8 5 4 2 3 1 5 5 1 2 15 13 5 14";
 		String[] b;
 		int pc = 1;
-		String x;
 
 		b = a.split(" ");
 		for (int i = 0; i < t.depth; i++) {
 			t.m[0][i] = Integer.valueOf(b[i]);
-			// test.m[0][i] = Integer.valueOf(b[i]);
-			// System.out.println(":-" + t.m[0][i]);
 		}
-
 		t.copy(0);
 		t.proc(1);
 		while (!t.find(pc)) {
 			t.copy(pc);
 			pc++;
 			t.proc(pc);
-
-			//System.out.println("pc" + pc);
-
 		}
 		System.out.println("pc=" + pc);
-
-//		for (int j = 0; j <= pc; j++) {
-//			x = "";
-//			for (int i = 0; i < t.depth; i++) {
-//				x += ":" + t.m[j][i];
-//			}
-//			System.out.println("pc=" + j + " " + x);
-//		}
 	}
 
 	void copy(int row) {
