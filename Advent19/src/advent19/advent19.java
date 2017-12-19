@@ -6,14 +6,14 @@ import java.nio.file.Paths;
 public class advent19 {
     static String[] s = new String[2005];
     static int antal = 0;
-    static int dir = 0;//nord=0 öst=1 syd=2 väst=3
-    static int posX = 0;//nord=0 öst=1 syd=2 väst=3
-    static int posY = 0;//nord=0 öst=1 syd=2 väst=3
+    static int dir = 0;//N=0 E=1 S=2 W=3
+    static int posX = 0;
+    static int posY = 0;
     static String word="";
     static int steps=0;
 
     public static void main(String[] args) throws Exception {
-        Files.readAllLines(Paths.get("C:\\dev\\workspace_mars2\\Test\\src\\maze.txt")).forEach(e -> ins(e));
+        Files.readAllLines(Paths.get("C:\\git\\AoC2017\\Advent19\\src\\advent19\\maze.txt")).forEach(e -> ins(e));
         //print();
         while (s[posY].charAt(posX) == ' ') {
             posX++;
