@@ -48,7 +48,7 @@ public class advent20 {
             if (!collision[i]) {
                 for (int j = i+1; j < antal; j++) {
                     if (!collision[j] && p[i][0].equals(p[j][0]) && p[i][1].equals(p[j][1]) && p[i][2].equals(p[j][2])) {
-                        System.out.println("collision i j" + i + " " + j);
+                        //System.out.println("collision i j" + i + " " + j);
                         collision[i] = true;
                         collision[j] = true;
                     }
