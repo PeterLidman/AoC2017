@@ -14,44 +14,26 @@ public class advent21 {
 	static String start = ".#...####";
 
 	public static void main(String[] args) throws Exception {
-		Files.readAllLines(Paths.get("C:\\git\\AoC2017\\Advent21\\src\\advent21\\book1.txt")).forEach(e -> readLine(e));
+		Files.readAllLines(Paths.get("C:\\git\\AoC2017\\Advent21\\src\\advent21\\book.txt")).forEach(e -> readLine(e));
 		// kontrolleraImporten();
 		// fyll i boken
 		for (int i = 0; i < antal; i++) {
 			String s = bok[i][0].replaceAll("/", "");
 			String r = bok[i][1].replaceAll("/", "");
 			fullBok.put(s, r);
-			// fullBok.put(flippaUN(s), r);
 			fullBok.put(flippaHV(s), r);
-
 			fullBok.put(rotera(s), r);
-			// fullBok.put(flippaUN(rotera(s)), r);
 			fullBok.put(flippaHV(rotera(s)), r);
-
 			fullBok.put(rotera(rotera(s)), r);
-			// fullBok.put(flippaUN(rotera(rotera(s))), r);
 			fullBok.put(flippaHV(rotera(rotera(s))), r);
-
 			fullBok.put(rotera(rotera(rotera(s))), r);
-			// fullBok.put(flippaUN(rotera(rotera(rotera(s)))), r);
 			fullBok.put(flippaHV(rotera(rotera(rotera(s)))), r);
 		}
-		System.out.println("bok=" + antal + " fullbok= " + fullBok.size());
-		for (String a : fullBok.keySet()) {
-			System.out.println(a + " : " + fullBok.get(a));
-		}
-
-		// System.out.println(rotera("1234"));
-		// System.out.println(flippaUN("1234"));
-		// System.out.println(flippaHV("1234"));
-		// System.out.println(rotera("123456789"));
-		// System.out.println(flippaUN("123456789"));
-		// System.out.println(flippaHV("123456789"));
-		// System.out.println(rotera(rotera("123456789")));
-		// System.out.println(rotera(rotera(rotera("123456789"))));
-		// System.out.println(rotera(rotera(rotera(rotera("123456789")))));
-		// System.out.println(fullBok.get(start));
-		System.out.println(countRecursive(2, start));
+		// System.out.println("bok=" + antal + " fullbok= " + fullBok.size());
+		// for (String a : fullBok.keySet()) {
+		// System.out.println(a + " : " + fullBok.get(a));
+		// }
+		System.out.println(countRecursive(18, start));
 	}
 
 	static int countRecursive(int iterations, String image) {
@@ -59,9 +41,9 @@ public class advent21 {
 		String tmpc[] = image.split("");
 		String tmp = "";
 		System.out.println("iter=" + iterations);
-		ritaUt(image);
+		// ritaUt(image);
 
-		if (iterations < 1) { // count # i ett löv
+		if (iterations < 1) {
 			for (int i = 0; i < tmpc.length; i++) {
 				if (tmpc[i].equals("#")) {
 					retur++;
@@ -87,8 +69,7 @@ public class advent21 {
 								+ image.substring(j + (i + 1) * side, j + (i + 1) * side + 2));
 					}
 				}
-				//System.out.println(tmp);
-				return countRecursive(iterations - 1, tmp);
+				return countRecursive(iterations - 1, transform3to2(tmp));
 			}
 			// 3
 			System.out.println("%3 side");
@@ -99,37 +80,55 @@ public class advent21 {
 							+ image.substring(j + (i + 2) * side, j + (i + 2) * side + 3));
 				}
 			}
-			//System.out.println(tmp);
-			return countRecursive(iterations - 1, tmp);
+			return countRecursive(iterations - 1, transform4to2(tmp));
 		}
 		System.out.println("nä men va fan nu då!");
 		return -1;
 	}
 
-	// static String kvadrant4to2(int k, String in) {
-	// String s[] = in.split("");
-	// String ut = "";
-	// if (in.length() == 16) {
-	// switch (k) {
-	// case 1:
-	// ut = s[2] + s[3] + s[6] + s[7];
-	// break;
-	// case 2:
-	// ut = s[0] + s[1] + s[4] + s[5];
-	// break;
-	// case 3:
-	// ut = s[8] + s[9] + s[12] + s[13];
-	// break;
-	// case 4:
-	// ut = s[10] + s[11] + s[14] + s[15];
-	// break;
-	// default:
-	// System.out.println("åh näj");
-	// }
-	// }
-	// System.out.println("kvad=" + k + " = " + ut);
-	// return ut;
-	// }
+	static String transform4to2(String in) {
+		int side = (int) Math.sqrt(in.length());
+		String tmp = "";
+		String tmp1 = "";
+		String tmp2 = "";
+		String tmp3 = "";
+		String tmp4 = "";
+		for (int i = 0; i < side / 4; i++) {
+			tmp1 = "";
+			tmp2 = "";
+			tmp3 = "";
+			tmp4 = "";
+			for (int j = 0; j < side / 4; j++) {
+				tmp1 += in.substring(i * side * 4 + j * 16, i * side * 4 + j * 16 + 4);
+				tmp2 += in.substring(i * side * 4 + j * 16 + 4, i * side * 4 + j * 16 + 4 + 4);
+				tmp3 += in.substring(i * side * 4 + j * 16 + 8, i * side * 4 + j * 16 + 8 + 4);
+				tmp4 += in.substring(i * side * 4 + j * 16 + 12, i * side * 4 + j * 16 + 12 + 4);
+			}
+			tmp += tmp1 + tmp2 + tmp3 + tmp4;
+		}
+		return tmp;
+	}
+
+	static String transform3to2(String in) {
+		int side = (int) Math.sqrt(in.length());
+		String tmp = "";
+		String tmp1 = "";
+		String tmp2 = "";
+		String tmp3 = "";
+		for (int i = 0; i < side / 3; i++) {
+			tmp1 = "";
+			tmp2 = "";
+			tmp3 = "";
+			for (int j = 0; j < side / 3; j++) {
+				tmp1 += in.substring(i * side * 3 + j * 9, i * side * 3 + j * 9 + 3);
+				tmp2 += in.substring(i * side * 3 + j * 9 + 3, i * side * 3 + j * 9 + 3 + 3);
+				tmp3 += in.substring(i * side * 3 + j * 9 + 6, i * side * 3 + j * 9 + 6 + 3);
+			}
+			tmp += tmp1 + tmp2 + tmp3;
+		}
+		return tmp;
+	}
+
 	static void ritaUt(String in) {
 		int side = (int) Math.sqrt(in.length());
 		for (int j = 0; j < side; j++) {
@@ -148,18 +147,6 @@ public class advent21 {
 		}
 		return ut;
 	}
-
-	// static String flippaUN(String in) {
-	// String s[] = in.split("");
-	// String ut = "";
-	// if (in.length() == 4) {
-	// ut = s[2] + s[3] + s[0] + s[1];
-	// }
-	// if (in.length() == 9) {
-	// ut = s[6] + s[7] + s[8] + s[3] + s[4] + s[5] + s[0] + s[1] + s[2];
-	// }
-	// return ut;
-	// }
 
 	static String rotera(String in) {
 		String s[] = in.split("");
