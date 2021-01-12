@@ -29,7 +29,7 @@ public class advent18Part2 {
 		vars2.put("p", 1L);
 		do {
 			// program 0
-			status();
+//			status();
 			a = tree[pc].split(" ");
 			switch (a[0]) {
 			case "snd":
@@ -66,11 +66,12 @@ public class advent18Part2 {
 			}
 			pc++;
 			// program 1
-			status2();
+//			status2();
 			a = tree[pc2].split(" ");
 			switch (a[0]) {
 			case "snd":
-				System.out.println("sänding=" + sendingValue++);
+//				System.out.println("sänding=" + sendingValue);
+				sendingValue++;
 				q.add(getV2(a[1]));
 				break;
 			case "set":
@@ -105,7 +106,7 @@ public class advent18Part2 {
 			pc2++;
 
 			if (q2.isEmpty() && q.isEmpty() && waiting && waiting2) { // nått deadlock
-				System.out.println("Deadlock, Prg1 sent=" + sendingValue + " times");
+				System.out.println("Part 2: Deadlock, Prg1 sent= " + sendingValue + " times");
 				System.exit(0);
 			}
 		} while (true);

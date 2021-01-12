@@ -6,7 +6,7 @@ import java.util.List;
 public class advent17 {
 	static List<Integer> spin = new ArrayList<Integer>();
 	// static int steps = 3;
-	static int steps = 348;
+	static int steps = 366;
 	static int pos = 0;
 	static int size = 1;
 	static int value = 0;
@@ -26,22 +26,24 @@ public class advent17 {
 			// System.out.println("pos" + pos);
 			pos++;
 			spin.add(pos, i);
-			// display();
-			reducedDisplay();
-			// startDisplay();
+//			display();
+//			reducedDisplay();
+//			startDisplay();
 		}
+		System.out.println("Part 1: " + spin.get(pos + 1));
 		// part2, ide ta bort array, räkna bara ut då pos är =1
 		pos = 0;
-		size=1;
+		size = 1;
 		for (int i = 1; i < 50_000_000; i++) {
 			pos = (pos + steps) % size;
 			pos++;
 			size++;
 			if (pos == 1) {
 				value = size - 1;
-				System.out.println("val" + value);
+//				System.out.println("val" + value);
 			}
 		}
+		System.out.println("Part 2: " + value);
 	}
 
 	static void startDisplay() {

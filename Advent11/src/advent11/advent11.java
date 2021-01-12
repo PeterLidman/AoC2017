@@ -61,10 +61,10 @@ public class advent11 {
 			}
 		} while (pc > 0);
 
-		for (int i = 0; i < 6; i++) {
-			System.out.println(i + ":" + c[i]);
-		}
-		System.out.println("max=" + max + "final dist=" + dist());
+//		for (int i = 0; i < 6; i++) {
+//			System.out.println(i + ":" + c[i]);
+//		}
+		System.out.println("Part 2: max= " + max + " Part 1: final dist= " + dist());
 
 	}
 

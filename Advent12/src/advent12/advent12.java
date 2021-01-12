@@ -1,4 +1,5 @@
 package advent12;
+
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
@@ -12,22 +13,23 @@ public class advent12 {
 
 	public static void main(String[] args) throws IOException {
 		Files.lines(Paths.get("C:\\git\\AoC2017\\Advent12\\src\\advent12\\plum.txt")).forEach(e -> advent12.insert(e));
-		// print();
-
+//		print();
 		fillMap(0);
+		System.out.println("Part 1: " + map.size());
 
+		// Part 2
 		for (int i = 0; i < 2000; i++) {
 			if (!map.containsKey(i)) {// new group
 				if (!map.containsValue(i)) {
 					groups++;
-					System.out.println("antal grupper=" + groups);
 					fillMap(i);
 				}
 			}
 		}
-		System.out.println("groups=" + antal);
+		System.out.println("Part 2: antal grupper=" + groups);
 
-		System.out.println("mapsize=" + map.size());
+//		System.out.println("groups=" + antal);
+
 		// for ( Integer a : map.keySet()) {
 		// System.out.println(":" + a + " @" + map.get(a));
 		// }
@@ -43,7 +45,7 @@ public class advent12 {
 			return;
 		}
 		de = tree[pos].substring(tree[pos].indexOf(">") + 2);
-		// System.out.println("rest=" + de);
+//		System.out.println("rest=" + de);
 		do {
 			pl = de.indexOf(",", pl + 1);
 			if (pl < 0) {// sista

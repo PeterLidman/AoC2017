@@ -4,11 +4,13 @@ public class advent6 {
 	int depth = 16;
 	int size = 20000;
 	int offset = 1;
+	static int sizeOfLoop;
 	int[][] m = new int[size][depth];
 
 	public static void main(String[] args) {
 		advent6 t = new advent6();
-		String a = "2 8 8 5 4 2 3 1 5 5 1 2 15 13 5 14";
+//		String a = "2 8 8 5 4 2 3 1 5 5 1 2 15 13 5 14";
+		String a = "4 10 4 1 8 4 9 14 5 1 14 15 0 15 3 5";
 		String[] b;
 		int pc = 1;
 
@@ -23,7 +25,8 @@ public class advent6 {
 			pc++;
 			t.proc(pc);
 		}
-		System.out.println("pc=" + pc);
+		System.out.println("Part 1= " + pc);
+		System.out.println("Part 2= " + (pc - sizeOfLoop));
 	}
 
 	void copy(int row) {
@@ -60,7 +63,8 @@ public class advent6 {
 				}
 			}
 			if (f) {
-				System.out.println("träff" + i);
+//				System.out.println("träff" + i);
+				sizeOfLoop = i;
 				return f;
 			}
 		}

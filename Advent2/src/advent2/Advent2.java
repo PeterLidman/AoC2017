@@ -21,15 +21,13 @@ public class Advent2 {
 			BufferedReader br = new BufferedReader(new InputStreamReader(in));
 
 			while ((str = br.readLine()) != null) {
-				System.out.println(str);
-
+//				System.out.println(str);
 				arr = str.split("\t");
-
-				System.out.println("l=" + arr.length);
-
+//				System.out.println("l=" + arr.length);
 				value = Integer.valueOf(arr[0]);
 				max = value;
 				min = value;
+				// Part 2
 				for (int i = 0; i < arr.length - 1; i++) {
 					for (int j = i + 1; j < arr.length; j++) {
 						value = Integer.valueOf(arr[i]);
@@ -46,19 +44,21 @@ public class Advent2 {
 						}
 					}
 				}
-				// for (int i = 0; i < arr.length; i++) {
-				// value = Integer.valueOf(arr[i]);
-				//
-				// if (value > max) {
-				// max = value;
-				// }
-				// if (value < min) {
-				// min = value;
-				// }
-				// }
-				System.out.println("max=" + max + "min=" + min + "div=" + max / min);
-				// sum += (max - min);
-				sum += (max / min);
+				// Part 1
+//				for (int i = 0; i < arr.length; i++) {
+//					value = Integer.valueOf(arr[i]);
+//
+//					if (value > max) {
+//						max = value;
+//					}
+//					if (value < min) {
+//						min = value;
+//					}
+//				}
+//				System.out.println("max=" + max + "min=" + min + "div=" + max / min);
+//				sum += (max - min);// Part 1
+
+				sum += (max / min);// Part 2
 			}
 			System.out.println("Advent2: sum=" + sum);
 			br.close();

@@ -16,16 +16,14 @@ public class advent7 {
 		List<String> c = new ArrayList<String>();
 
 		Files.lines(Paths.get("C:\\git\\AoC2017\\Advent7\\src\\advent7\\tree.txt")).forEach(e -> t.insert(e));
-
-		print();
-
-		System.out.println("chi :" + getChildren(tree[0]));
-		a = getChildrenX(tree[0]);
-		System.out.println("chi :" + a.length);
-		System.out.println("chi :" + a[0]);
-		System.out.println("chi :" + a[1]);
-		System.out.println("val :" + getValue(tree[0]));
-		System.out.println("word:" + getFirstWord(tree[0]));
+//		print();
+//		System.out.println("chi :" + getChildren(tree[0]));
+//		a = getChildrenX(tree[0]);
+//		System.out.println("chi :" + a.length);
+//		System.out.println("chi :" + a[0]);
+//		System.out.println("chi :" + a[1]);
+//		System.out.println("val :" + getValue(tree[0]));
+//		System.out.println("word:" + getFirstWord(tree[0]));
 
 		for (int i = 0; i < antal; i++) {
 			for (String aa : getChildrenX(tree[i])) {
@@ -35,19 +33,18 @@ public class advent7 {
 		for (int i = 0; i < antal; i++) {
 			if (getChildren(tree[i]).length() > 0) {
 				if (!c.contains(getFirstWord(tree[i]))) {
-					System.out.println("hittade:" + tree[i] + "på plats" + i);
+					System.out.println("Part 1: " + tree[i] + " på plats: " + i);
 					plats = i;
 				}
 			}
 		}
-		System.out.println("klart");
 
 		System.out.println(printSum(plats));
 		System.out.println(printSum(getPosOfWord("gjxqx")));
 		System.out.println(printSum(getPosOfWord("yruivis")));
 		System.out.println(printSum(getPosOfWord("sphbbz")));
 		System.out.println("felet:" + getPosOfWord("sphbbz"));
-		System.out.println("2671 - 7*217 =" + (2671 - 7*217));
+		System.out.println("Part 2: 2671 - 7*217 = " + (2671 - 7*217));
 	}
 	
 	static String printSum(int pl) {

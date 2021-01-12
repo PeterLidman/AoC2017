@@ -17,12 +17,12 @@ public class advent16 {
 	public static void main(String[] args) throws IOException {
 		Files.lines(Paths.get("C:\\git\\AoC2017\\Advent16\\src\\advent16\\dance.txt")).forEach(e -> insert(e));
 		String newOrder = "abcde";
-		newOrder = spin(1, newOrder);
-		System.out.println(newOrder);
-		newOrder = exchange(3, 4, newOrder);
-		System.out.println(newOrder);
-		newOrder = partner("e".charAt(0), "b".charAt(0), newOrder);
-		System.out.println(newOrder);
+//		newOrder = spin(1, newOrder);
+//		System.out.println(newOrder);
+//		newOrder = exchange(3, 4, newOrder);
+//		System.out.println(newOrder);
+//		newOrder = partner("e".charAt(0), "b".charAt(0), newOrder);
+//		System.out.println(newOrder);
 		newOrder = "abcdefghijklmnop";
 		moves = row[0].split(",");
 		do {
@@ -46,7 +46,10 @@ public class advent16 {
 				}
 				move++;
 			} while (moves.length > move);
-			System.out.println("nr=" + walk + ":" + newOrder);
+			if(walk==1) {//Part 1
+				System.out.println("Part 1: " + newOrder);
+			}
+//			System.out.println("nr=" + walk + ":" + newOrder);
 			if (null != unika.put(newOrder, walk)) {// rep found, fast forward walk
 				System.out.println("repetition vid= " + walk + ":" + newOrder);
 				unika.clear();// ignore the rest
@@ -54,7 +57,7 @@ public class advent16 {
 				walk = (1_000_000_000 - (1_000_000_000 % (walk - 1))) + 1;// redan gjort den första dansen av resten
 			}
 		} while (walk++ < 1_000_000_000);
-		System.out.println("efter 1^9 danser= " + newOrder);
+		System.out.println("Part 2: efter 1^9 danser= " + newOrder);
 	}
 
 	static String spin(int d, String in) {

@@ -71,7 +71,7 @@ public class advent8 {
 				maximum = tmp;
 			}
 		}
-		System.out.println("maximum= " + maximum);
+		System.out.println("Part 2: maximum= " + maximum);
 
 		int max = 0;
 		for (String aa : vars.keySet()) {
@@ -79,7 +79,7 @@ public class advent8 {
 				max = vars.get(aa);
 			}
 		}
-		System.out.println("max= " + max);
+		System.out.println("Part 1: max= " + max);
 	}
 
 	static String[] getChildrenX(String in) {

@@ -1,4 +1,5 @@
 package advent4;
+
 import java.io.BufferedReader;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -28,20 +29,22 @@ public class advent4 {
 							found = true;
 							break;
 						}
-						//part2
+
+						// part2
 						if (isAnagram(arr[i], arr[j])) {
 //							System.out.println(arr[i] + " :: " + arr[j]);
 							found = true;
 							break;
 						}
+						// end part 2
 					}
 				}
 				if (!found) {
 					sum++;
 				}
-				System.out.println("Advent4: sum=" + sum);
 			}
 			br.close();
+			System.out.println("Advent4: sum=" + sum);
 
 		} catch (FileNotFoundException e) {
 			System.out.println("Hittade inte filjäveln");

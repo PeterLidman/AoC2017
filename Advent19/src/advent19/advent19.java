@@ -30,7 +30,7 @@ public class advent19 {
                 turn();
             }
         } while ( s[posY].charAt(posX) != ' ');
-        System.out.println("Word= " + word + " steps= " + steps);
+        System.out.println("Part 1: Word= " + word + " Part 2: steps= " + steps);
     }
 
     static void turn() {

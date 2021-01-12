@@ -20,8 +20,8 @@ public class advent9 {
 		filter2();
 //		print();
 		System.out.println("{= " + count("{", 2) + " }= " + count("}", 2));
-		System.out.println("Svar= " + calc(tree[2]));
-		System.out.println("garbage= " + garbage);
+		System.out.println("Part 1: " + calc(tree[2]));
+		System.out.println("Part 2: garbage= " + garbage);
 	}
 
 	static int count(String in, int col) {

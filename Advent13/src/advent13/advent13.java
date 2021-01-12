@@ -18,22 +18,22 @@ public class advent13 {
 			scan[Integer.valueOf(row[i].substring(0, row[i].indexOf(":")))] = Integer
 					.valueOf(row[i].substring(row[i].indexOf(":") + 2));
 		}
-		for (int i = 0; i < 95; i++) {
+		for (int i = 0; i < 99; i++) {
 			sev += scanner(scan[i], i) ? i * scan[i] : 0;
 		}
-		System.out.println("severity= " + sev);
+		System.out.println("Part 1: severity= " + sev);
 
 		do {
 			sev = 0;
 			if ( scanner(scan[0],  delay)) { //
 				sev = 1337;
 			}
-			for (int i = 0; i < 95; i++) {
+			for (int i = 0; i < 99; i++) {
 				sev += scanner(scan[i], i + delay) ? i * scan[i] : 0;
 			}
 			delay++;
 		} while (sev > 0);
-		System.out.println("delay= " + --delay + " severity= " + sev);
+		System.out.println("Part 2: delay= " + --delay + " with severity= " + sev);
 
 	}
 

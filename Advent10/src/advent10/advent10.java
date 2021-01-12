@@ -1,6 +1,7 @@
 package advent10;
+
 public class advent10 {
-	static String puzzle = "106,118,236,1,130,0,235,254,59,205,2,87,129,25,255,118";
+	static String puzzle = "189,1,111,246,254,2,0,120,215,93,255,50,84,15,94,62";
 	// static String puzzle = "";
 	// static String puzzle = "AoC 2017";
 	// static String puzzle = "1,2,3";
@@ -9,7 +10,7 @@ public class advent10 {
 	static int[] suffix = { 17, 31, 73, 47, 23 };
 	static int[] intpuz = new int[59];
 	static int data[] = new int[256];
-	static int[] seqinlenght = { 106, 118, 236, 1, 130, 0, 235, 254, 59, 205, 2, 87, 129, 25, 255, 118 };
+	static int[] seqinlenght = { 189, 1, 111, 246, 254, 2, 0, 120, 215, 93, 255, 50, 84, 15, 94, 62 };
 	static int tin[] = { 0, 1, 2, 3, 4 };
 	static int cp = 0;
 	static int skipsize = 0;
@@ -23,14 +24,14 @@ public class advent10 {
 		}
 		cp = 0;
 		skipsize = 0;
-		print();
+//		print();
 		for (int i = 0; i < seqinlenght.length; i++) {
 			reverse(cp, seqinlenght[i]);
 			cp = (cp + seqinlenght[i] + skipsize++) % 256;
-			System.out.println("cp" + cp + "skips" + skipsize + "length= " + seqinlenght[i]);
-			print();
+//			System.out.println("cp: " + cp + " skips: " + skipsize + " length= " + seqinlenght[i]);
+//			print();
 		}
-		System.out.println("summa= " + data[0] * data[1]);
+		System.out.println("Part 1: summa= " + data[0] * data[1]);
 		///////////
 		// part2 //
 		///////////
@@ -47,7 +48,7 @@ public class advent10 {
 		for (int i = 0; i < puzlen; i++) {
 			a += i + ":" + intpuz[i] + " ";
 		}
-		System.out.println(a);
+//		System.out.println(a);
 
 		for (int i = 0; i < 256; i++) {
 			data[i] = i;
@@ -68,11 +69,11 @@ public class advent10 {
 			for (int j = 1; j < 16; j++) {
 				dense[i] = dense[i] ^ data[i * 16 + j];
 			}
-			System.out.println(" i=" + i + " dense=" + dense[i]);
+//			System.out.println(" i=" + i + " dense=" + dense[i]);
 			denseStr += (char) dense[i];
 		}
-		System.out.println("densstring:" + denseStr);
-		System.out.println("hexdensstring:" + toHex(denseStr));
+//		System.out.println("densstring:" + denseStr);
+		System.out.println("Part 2: hexdensstring= " + toHex(denseStr));
 	}
 
 	public static String toHex(String arg) {

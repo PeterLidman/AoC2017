@@ -6,76 +6,76 @@ public class advent25 {
 		int pos = 9_000;
 		long steps = 0;
 		boolean cv = false;
-		boolean tape[] = new boolean[10_000];
+		boolean tape[] = new boolean[20_000];
 		int ones = 0;
 
 		do {
 			switch (state) {
 			case 'A':
-				if (cv) {
-					tape[pos] = false;
-					pos--;
-					state = 'C';
-				} else {
+				if (!cv) {
 					tape[pos] = true;
 					pos++;
 					state = 'B';
-				}
-				break;
-			case 'B':
-				if (cv) {
-					// tape[pos] = true;
-					pos++;
-					state = 'C';
 				} else {
-					tape[pos] = true;
-					pos--;
-					state = 'A';
-				}
-				break;
-			case 'C':
-				if (cv) {
 					tape[pos] = false;
 					pos--;
 					state = 'D';
-				} else {
-					tape[pos] = true;
-					pos++;
-					state = 'A';
 				}
 				break;
-			case 'D':
-				if (cv) {
-					// tape[pos] = true;
-					pos--;
+			case 'B':
+				if (!cv) {
+					tape[pos] = true; //part 1
+					pos++;
 					state = 'C';
 				} else {
-					tape[pos] = true;
-					pos--;
-					state = 'E';
-				}
-				break;
-			case 'E':
-				if (cv) {
-					// tape[pos] = true;
-					pos++;
-					state = 'A';
-				} else {
-					tape[pos] = true;
+					tape[pos] = false;
 					pos++;
 					state = 'F';
 				}
 				break;
-			case 'F':
-				System.out.println("step=" + steps + " pos=" + pos);
-				if (cv) {
-					// tape[pos] = true;
-					pos++;
+			case 'C':
+				if (!cv) {
+					tape[pos] = true;
+					pos--;
+					state = 'C';
+				} else {
+					tape[pos] = true;
+					pos--;
+					state = 'A';
+				}
+				break;
+			case 'D':
+				if (!cv) {
+					tape[pos] = false;//part 1
+					pos--;
 					state = 'E';
 				} else {
 					tape[pos] = true;
 					pos++;
 					state = 'A';
+				}
+				break;
+			case 'E':
+				if (!cv) {
+					tape[pos] = true;//part 1
+					pos--;
+					state = 'A';
+				} else {
+					tape[pos] = false;
+					pos++;
+					state = 'B';
+				}
+				break;
+			case 'F':
+				System.out.println("step=" + steps + " pos=" + pos);
+				if (!cv) {
+					tape[pos] = false;
+					pos++;
+					state = 'C';
+				} else {
+					tape[pos] = false;
+					pos++;
+					state = 'E';
 				}
 				break;
 			default:
@@ -83,9 +83,9 @@ public class advent25 {
 			}
 			cv = tape[pos];
 			steps++;
-		} while (steps < 12134527);
+		} while (steps < 12317297 );
 		// count 1
-		for (int i = 0; i < 10_000; i++) {
+		for (int i = 0; i < 20_000; i++) {
 			if (tape[i]) {
 				ones++;
 				if(ones==1) 

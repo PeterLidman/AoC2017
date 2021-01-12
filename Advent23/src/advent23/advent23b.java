@@ -9,7 +9,7 @@ public class advent23b {
 		long b = 0;
 		long c = 0;
 
-		b = 84;
+		b = 81;
 		b *= 100;
 		b += 100_000;
 		c = b;

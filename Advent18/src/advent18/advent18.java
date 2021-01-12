@@ -19,7 +19,7 @@ public class advent18 {
 		Files.lines(Paths.get("C:\\git\\AoC2017\\Advent18\\src\\advent18\\code.txt")).forEach(e -> insert(e));
 		// print();
 		do {
-			status();
+//			status();
 			a = tree[pc].split(" ");
 			switch (a[0]) {
 			case "snd":
@@ -39,7 +39,7 @@ public class advent18 {
 				break;
 			case "rcv":
 				if (getV(a[1]) != 0) {
-					System.out.println("Sound is=" + sound);
+					System.out.println("Part 1: Sound is= " + sound);
 					System.exit(0);
 				}
 				break;

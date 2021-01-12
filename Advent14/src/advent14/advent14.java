@@ -2,7 +2,7 @@ package advent14;
 
 public class advent14 {
 	//static String defrag = "flqrgnkx";
-	static String defrag="amgozmfv";
+	static String defrag="jxqlasbh";
 	static String puzzle = "106,118,236,1,130,0,235,254,59,205,2,87,129,25,255,118";
 	static int puzlen = 0;
 	static int[] suffix = { 17, 31, 73, 47, 23 };
@@ -65,13 +65,13 @@ public class advent14 {
 			disk[k]=hexStringToBinString(hexStr);
 			//System.out.println(disk[k]);
 		}
-		System.out.println("used squares= " + usedSquares);
+		System.out.println("Part 1: Used squares= " + usedSquares);
 		for(int i=0; i<128;i++) {
 			for(int j=0; j<128;j++) {
 				regions += wipeOut(i, j);	
 			}			
 		}
-		System.out.println("regions= " + regions);
+		System.out.println("Part 2: Regions= " + regions);
 	}
 	
 	private static int wipeOut(int row, int place) {

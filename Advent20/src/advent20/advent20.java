@@ -26,7 +26,7 @@ public class advent20 {
                 minPos = i;
             }
         }
-        System.out.println("minPos= " + minPos + " dist= " + min);
+        System.out.println("Part 1: Particle nr= " + minPos + " at distance= " + min);
         //part2
         for (int j = 0; j < 1_000; j++) {
             for (int i = 0; i < antal; i++) {
@@ -40,7 +40,7 @@ public class advent20 {
                 left--;
             }
         }
-        System.out.println("particles left= " + left);
+        System.out.println("Part 2: Particles left= " + left);
     }
 
     static void markCollisions() {

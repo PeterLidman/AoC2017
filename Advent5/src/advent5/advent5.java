@@ -1,4 +1,5 @@
 package advent5;
+
 import java.io.BufferedReader;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -20,21 +21,25 @@ public class advent5 {
 			BufferedReader br = new BufferedReader(new InputStreamReader(in));
 			while ((str = br.readLine()) != null) {
 				jmp.add(Integer.valueOf(str));
-				// sum++;
 			}
 
 			while (pc >= 0 && pc < jmp.size()) {
-				// process
-
 				hopp = jmp.get(pc);
 
+				// Part 1
+//				jmp.set(pc, hopp + 1);
+				// end Part 1
+
+				// Part 2
 				if (hopp > 2) {
 					jmp.set(pc, hopp - 1);
 				} else {
 					jmp.set(pc, hopp + 1);
 				}
+				// end Part 2
+
 				pc += hopp;
-				//System.out.println("pc=" + pc + "inst:" + sum + "hopp" + hopp);
+				// System.out.println("pc=" + pc + "inst:" + sum + "hopp" + hopp);
 
 				sum++;
 			}

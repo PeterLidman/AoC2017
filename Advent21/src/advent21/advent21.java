@@ -15,7 +15,8 @@ public class advent21 {
 
 	public static void main(String[] args) throws Exception {
 		Files.readAllLines(Paths.get("C:\\git\\AoC2017\\Advent21\\src\\advent21\\book.txt")).forEach(e -> readLine(e));
-		// kontrolleraImporten();
+//		kontrolleraImporten();
+		antal = 108;
 		// fyll i boken
 		for (int i = 0; i < antal; i++) {
 			String s = bok[i][0].replaceAll("/", "");
@@ -33,6 +34,11 @@ public class advent21 {
 		// for (String a : fullBok.keySet()) {
 		// System.out.println(a + " : " + fullBok.get(a));
 		// }
+		
+		// Part 1
+		// System.out.println(countRecursive(5, start));
+		
+		// Part 2
 		System.out.println(countRecursive(18, start));
 	}
 
